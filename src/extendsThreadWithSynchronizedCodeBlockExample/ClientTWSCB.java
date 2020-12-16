@@ -8,23 +8,22 @@ import java.util.List;
 public class ClientTWSCB {
     public void getExample() {
         try {
-            TimeHelper.startTime = System.currentTimeMillis();
-            System.out.println("Current thread: " + Thread.currentThread().getName());
-            List<CounterTWSCB> threadList = new ArrayList<>();
+            TimeHelper.startTime = System.currentTimeMillis(); //время старта
+            List<CounterTWSCB> threadList = new ArrayList<>(); //инфа о мейн потоке
             for (int i = 0; i < 25; i++) {
-                CounterTWSCB thread = new CounterTWSCB(String.valueOf(i));
-                threadList.add(thread);
+                CounterTWSCB thread = new CounterTWSCB(String.valueOf(i)); //создаем поток
+                threadList.add(thread); //добавляем в лист
             }
 
             for (CounterTWSCB thread : threadList) {
-                thread.start();
+                thread.start(); //стартуем каждый
             }
 
             for (CounterTWSCB thread : threadList) {
-                thread.join();
+                thread.join(); //ждем пока каждый завершится
             }
-            TimeHelper.endTime = System.currentTimeMillis();
-            System.out.println(TimeHelper.getRangeInSeconds());
+            TimeHelper.endTime = System.currentTimeMillis(); //время конца
+            System.out.println(TimeHelper.getRangeInSeconds()); //выводим время работы проги в секундах
             System.out.println("Exit from main");
         } catch (InterruptedException e) {
             e.printStackTrace();
