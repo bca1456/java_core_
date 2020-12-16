@@ -1,8 +1,6 @@
-import extendsThreadExample.ClientT;
-import extendsThreadWithSynchronizedExample.ClientTWS;
-import runnableExample.Client;
+import extendsThreadWithSynchronizedCodeBlockExample.ClientTWSCB;
 
-public class main {
+public class Main {
     public static void main(String[] args){
         /**
          * Суть в том, что создается мейн поток и 1 дочерний.
@@ -24,11 +22,18 @@ public class main {
 //        System.out.println("==============");
 
         /**
-         * Такая же суть, но поток создается наследованием от Thred,
-         * с созданным синхронизированным доступом
+         * Такая же суть, но поток создается наследованием от Thread,
+         * с созданным синхронизированным методом
          */
-        ClientTWS clientTWS = new ClientTWS();
-        clientTWS.getExample();
+//        ClientTWS clientTWS = new ClientTWS();
+//        clientTWS.getExample();
+
+        /**
+         * Такая же суть, но поток создается наследованием от Thread,
+         * с созданным синхронизированным доступом к переменной
+         */
+        ClientTWSCB clientTWSCB = new ClientTWSCB();
+        clientTWSCB.getExample();
     }
 }
 
