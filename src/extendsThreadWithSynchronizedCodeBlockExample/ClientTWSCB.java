@@ -9,8 +9,8 @@ public class ClientTWSCB {
     public void getExample() {
         try {
             TimeHelper.startTime = System.currentTimeMillis(); //время старта
-            List<CounterTWSCB> threadList = new ArrayList<>(); //инфа о мейн потоке
-            for (int i = 0; i < 25; i++) {
+            List<CounterTWSCB> threadList = new ArrayList<>(); //лист потоков
+            for (int i = 0; i < 2; i++) {
                 CounterTWSCB thread = new CounterTWSCB(String.valueOf(i)); //создаем поток
                 threadList.add(thread); //добавляем в лист
             }
