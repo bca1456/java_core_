@@ -10,7 +10,7 @@ public class ClientTWSCB {
         try {
             TimeHelper.startTime = System.currentTimeMillis(); //время старта
             List<CounterTWSCB> threadList = new ArrayList<>(); //лист потоков
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 128; i++) {
                 CounterTWSCB thread = new CounterTWSCB(String.valueOf(i)); //создаем поток
                 threadList.add(thread); //добавляем в лист
             }
@@ -22,6 +22,7 @@ public class ClientTWSCB {
             for (CounterTWSCB thread : threadList) {
                 thread.join(); //ждем пока каждый завершится
             }
+//            System.out.println(ValueList.evenNumbersList);
             TimeHelper.endTime = System.currentTimeMillis(); //время конца
             System.out.println(TimeHelper.getRangeInSeconds()); //выводим время работы проги в секундах
             System.out.println("Exit from main");
