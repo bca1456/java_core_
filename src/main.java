@@ -1,3 +1,4 @@
+import extendsThreadExample.ClientT;
 import runnableExample.Client;
 
 public class main {
@@ -9,6 +10,17 @@ public class main {
          */
         Client client = new Client();
         client.getRunnableExample();
+
+        System.out.println("==============");
+
+        /**
+         * Такая же суть, но поток создается наследованием от Thred,
+         * но рофл в том, что надо сделать синхронизированный доступ к переменной
+         */
+        ClientT clientT = new ClientT();
+        clientT.getExample();
+
+
     }
 }
 
