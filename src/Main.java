@@ -1,18 +1,35 @@
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
-        //new Thread(() -> System.out.println("Hello world!")).start();
-        String a1 = "qqq";
-        String a2 = "qqww";
-        Q q;
-        q = (o1, o2) -> {
-            if (o1.length() > o2.length()) return o1;
-            else if(o1.length() == o2.length()) return "ravno";
-            else return o2;
-        };
-        System.out.println(q.comp(a1, a2));
+        new User("Евгений", 35, Sex.MALE);
+        new User("Марина", 34, Sex.FEMALE);
+        new User("Алина", 7, Sex.FEMALE);
+
+
+        System.out.println("Все пользователи:");
+        User.getAllUsers().forEach(System.out::println);
+        System.out.println("Все пользователи: MALE");
+        User.getAllUsers(Sex.MALE).forEach(System.out::println);
+        System.out.println("Все пользователи: FEMALE");
+        User.getAllUsers(Sex.FEMALE).forEach(System.out::println);
+        System.out.println("================================================");
+        System.out.println("       всех пользователей: " + User.getHowManyUsers());
+        System.out.println("  всех пользователей MALE: " + User.getHowManyUsers(Sex.MALE));
+        System.out.println("всех пользователей FEMALE: " + User.getHowManyUsers(Sex.FEMALE));
+        System.out.println("================================================");
+        System.out.println("       общий возраст всех пользователей: " + User.getAllAgeUsers());
+        System.out.println("  общий возраст всех пользователей MALE: " + User.getAllAgeUsers(Sex.MALE));
+        System.out.println("общий возраст всех пользователей FEMALE: " + User.getAllAgeUsers(Sex.FEMALE));
+        System.out.println("================================================");
+        System.out.println("       средний возраст всех пользователей: " + User.getAverageAgeOfAllUsers());
+        System.out.println("  средний возраст всех пользователей MALE: " + User.getAverageAgeOfAllUsers(Sex.MALE));
+        System.out.println("средний возраст всех пользователей FEMALE: " + User.getAverageAgeOfAllUsers(Sex.FEMALE));
+        System.out.println("================================================");
     }
 }
 
