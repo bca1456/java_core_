@@ -11,11 +11,17 @@ public class UserTest {
     private User user2;
     private User user3;
 
+    private User badUser1;
+    private User badUser2;
+
     @Before
     public void setUp() {
         user1 = new User("Mike", 31, Sex.MALE);
         user2 = new User("Helen", 23, Sex.FEMALE);
         user3 = new User("John", 77, Sex.MALE);
+
+        badUser1 = new User("", -4, null);
+        badUser2 = new User(null, 0, Sex.MALE);
     }
 
     @Test
@@ -71,5 +77,14 @@ public class UserTest {
         int actual = 2;
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isNewUserHasEmptyName(){
+        for (User user: User.getAllUsers()) {
+            if(user.getName() != null && user.getName().isEmpty()){
+                Assert.fail("Creating user with empty name");
+            }
+        }
     }
 }
